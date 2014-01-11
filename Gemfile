@@ -14,6 +14,7 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'google_drive'
+gem 'dbc-ruby'
 
 group :test do
   gem 'rspec'
