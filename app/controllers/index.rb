@@ -1,4 +1,7 @@
+before '/' do
+  redirect to '/authenticate' unless authenticated?
+end
+
 get '/' do
-  # Look in app/views/index.erb
   erb :index
 end
