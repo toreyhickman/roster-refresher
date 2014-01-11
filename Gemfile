@@ -13,6 +13,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'google_drive'
+
 group :test do
   gem 'rspec'
 end
