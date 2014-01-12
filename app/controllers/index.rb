@@ -14,9 +14,9 @@ end
 post '/update_spreadsheet' do
   selected_cohorts = recent_chicago_cohorts.select { |cohort| params[:cohorts].include?(cohort.name) }
 
-  selected_cohorts.each do |cohort|
-    puts cohort.students.count
+  if update_spreadsheet(selected_cohorts)
+    redirect to '/updated'
+  else
+    erb :index
   end
-
-  redirect to '/updated'
 end
