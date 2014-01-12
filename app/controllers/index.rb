@@ -3,5 +3,6 @@ before '/' do
 end
 
 get '/' do
+  @cohorts = recent_chicago_cohorts
   erb :index
 end
