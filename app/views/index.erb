@@ -1,16 +1,16 @@
-<div class="container">
-  <h1>Active and Recent Cohorts</h1>
-  <p>
-    Select the cohorts for which you would like the Chicago Cohort Roster updated.  This will overwrite all data on the cohorts' respective worksheets with the data currently available from the DevBootcamp API.
-  </p>
+<p class="margin_b_2em">
+  Select the cohorts for which you would like the <a href="https://docs.google.com/a/devbootcamp.com/spreadsheet/ccc?key=0AsMU7W_Wn78LdEVmaHBkdndjckdkeTRoMjRxWXdCUXc&usp=drive_web#gid=5">Chicago Cohort Roster</a> updated.  <span class="details">This will overwrite all data on the cohorts' respective worksheets with the data currently available from the DevBootcamp API.</span>
+</p>
 
-  <form method="post" action="/update_spreadsheet">
-    <% @cohorts.each do |cohort| %>
-      <input type="checkbox" name="cohorts[]" value="<%= cohort.name %>">
-      <%= cohort.name %>
-    <% end %>
+<form method="post" action="/update_spreadsheet">
+  <% @cohorts.each do |cohort| %>
+    <div class="input_wrap margin_b_1em">
+      <input type="checkbox" id="<%= cohort.name %>"name="cohorts[]" value="<%= cohort.name %>">
+      <label for="<%= cohort.name %>"><span></span><%= cohort.name %></label>
+    </div>
+  <% end %>
 
-    <input type="submit">
-  </form>
+  <input type="submit" value="Update Spreadsheet">
+</form>
 
-</div>
+

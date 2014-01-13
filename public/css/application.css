@@ -1,9 +1,127 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+body {
+  background-color: #f7f7f7;
+  color:
+  #444444;
 }
-th {
-  text-align: left;
+
+p {
+  line-height: 1.5em;
+}
+
+a, a:visited {
+  color: #4e9ede;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #1d4d8b;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 1em 0 5em 0;
+}
+
+footer a, footer a:visited {
+  color: #f7f7f7;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #f7f7f7;
+  text-decoration: underline;
+}
+
+h1 {
+  color: #1d4d8b;
+}
+
+input[type = submit] {
+  margin-top: 1em;
+  padding: .75em;
+  background-color: #4e9ede;
+  border-radius: 4px;
+  color: #f7f7f7;
+  border: none;
+  outline: 0;
+}
+
+input[type = submit]:hover {
+  background-color: #1d4d8b;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: .9em;
+  height: .9em;
+  border-radius: 2px;
+  background-color: #999999;
+  margin-right: .6em;
+}
+
+input[type="checkbox"]:checked + label {
+  color: #1d4d8b;
+}
+
+input[type="checkbox"]:checked + label span {
+  background-color: #1d4d8b;
+}
+
+.margin_b_1em {
+  margin-bottom: 1em;
+}
+
+.margin_b_2em {
+  margin-bottom: 2em;
+}
+
+.margin_t_0 {
+  margin-top: 0;
+}
+
+.container {
+  margin: 0px auto;
+  width: 540px;
+  height: 80%;
+  padding: .5em 20px 80px 20px;
+}
+
+.input_wrap {
+  width: 49%;
+  display: inline-block;
+}
+
+@media (max-width: 599px) {
+  input[type = submit] {
+    width: 100%;
+    padding: 1.5em 0;
+  }
+
+  .container {
+    margin: 0px auto;
+    width: 90%;
+    padding: .5em 5% 80px 5%;
+  }
+
+  .input_wrap {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .details {
+    display: none;
+  }
+
+  footer {
+    padding: .5em 0 1em 0;
+  }
+
 }
