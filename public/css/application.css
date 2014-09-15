@@ -23,7 +23,7 @@ footer {
   bottom: 0;
   text-align: center;
   width: 100%;
-  padding: 1em 0 5em 0;
+  padding: 1em 0 2em 0;
 }
 
 footer a, footer a:visited {
@@ -122,7 +122,7 @@ input[type="checkbox"]:checked + label span {
   }
 
   footer {
-    padding: .5em 0 1em 0;
+    padding: 1em 0 1em 0;
   }
 
 }
