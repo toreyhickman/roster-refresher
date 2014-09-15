@@ -1,4 +1,7 @@
 module GoogleDriveHelpers
+  MAX_ROWS = 35
+  MAX_COLUMNS = 10
+
   def update_spreadsheet(cohorts)
     spreadsheet = login_to_google.spreadsheet_by_key(ENV['DOC_KEY'])
 
@@ -16,7 +19,7 @@ module GoogleDriveHelpers
   end
 
   def update_or_create_worksheet(spreadsheet, cohort)
-    ws = spreadsheet.worksheet_by_title(cohort.name) || spreadsheet.add_worksheet(cohort.name, 35, 10)
+    ws = spreadsheet.worksheet_by_title(cohort.name) || spreadsheet.add_worksheet(cohort.name, MAX_ROWS, MAX_COLUMNS)
     clear(ws)
 
     write_student_data(ws, cohort.students)
