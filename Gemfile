@@ -3,7 +3,6 @@ ruby "2.0.0"
 
 # Sinatra driver
 gem 'sinatra'
-gem 'sinatra-contrib'
 
 # Use Thin for our web server
 gem 'thin'
@@ -22,6 +21,10 @@ gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-dbc', :git => 'https://github.com/Devbootcamp/omniauth-dbc.git'
 gem 'json'
+
+group :development do
+  gem 'sinatra-contrib'
+end
 
 group :test do
   gem 'rspec'
