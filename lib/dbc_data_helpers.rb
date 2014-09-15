@@ -17,16 +17,24 @@ module DBCDataHelpers
   end
 
   def recent(start_date)
-    start_this_year(start_date) || graduated_within_90_days(start_date)
+    start_within_30_days(start_date) || graduated_within_45_days(start_date)
   end
 
   def start_this_year(start_date)
     Date.parse(start_date).year == Time.now.year
   end
 
-  def graduated_within_90_days(start_date)
-    grad_date = Date.parse(start_date) + 60
-    Date.today - 90 <= grad_date
+  def start_within_30_days(start_date)
+    ruby_start_date = Date.parse(start_date)
+    max_start_date = Date.today + 30
+    today = Date.today
+
+    ruby_start_date >= today && ruby_start_date <= max_start_date
+  end
+
+  def graduated_within_45_days(start_date)
+    grad_date = Date.parse(start_date) + 45
+    Date.today - 45 <= grad_date
   end
 
   def melt_or_hold(cohort_name)
