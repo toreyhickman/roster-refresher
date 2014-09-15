@@ -14,7 +14,7 @@ end
 post '/update_spreadsheet' do
   if params[:cohorts]
     selected_cohorts = recent_chicago_cohorts.select { |cohort| params[:cohorts].include?(cohort.name) }
-    update_spreadsheet(selected_cohorts) ? (redirect to '/updated') : (redirect to '/')
+    RosterRefresher.new.update_spreadsheet(selected_cohorts) ? (redirect to '/updated') : (redirect to '/')
   end
 
   redirect to '/'
