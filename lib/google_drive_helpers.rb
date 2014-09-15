@@ -49,6 +49,7 @@ module GoogleDriveHelpers
       unless student.roles.include?('admin')
         ws[row, 1] = student.name
         ws[row, 2] = student.email
+        ws[row, 3] = clean_twitter_handle(student.profile[:twitter])
         row += 1
       end
     end
@@ -65,5 +66,9 @@ module GoogleDriveHelpers
     row = ws.num_rows() +  1
 
     ws[row, 1] = DateTime.now.strftime("Roster updated: %b %d %H:%M")
+  end
+
+  def clean_twitter_handle(string)
+    string.nil? ? String.new : string.sub(/(^\S*\/)?@?(?<handle>[\w]+)/, '@\k<handle>')
   end
 end
