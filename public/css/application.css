@@ -40,6 +40,10 @@ h1 {
   color: #1d4d8b;
 }
 
+form {
+  padding-bottom: 2em;
+}
+
 input[type = submit] {
   margin-top: 1em;
   padding: .75em;
@@ -100,6 +104,16 @@ input[type="checkbox"]:checked + label span {
   display: inline-block;
 }
 
+.alert_async {
+  color: gray;
+  -webkit-animation: fadeInOut 4s infinite;
+  animation: fadeInOut 3s infinite;
+}
+
+.error {
+  color: red;
+}
+
 @media (max-width: 599px) {
   input[type = submit] {
     width: 100%;
@@ -124,5 +138,34 @@ input[type="checkbox"]:checked + label span {
   footer {
     padding: 1em 0 1em 0;
   }
+}
 
+@-webkit-keyframes fadeInOut {
+  0% {
+      opacity: .25;
+  }
+  33% {
+      opacity: 1;
+  }
+  66% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: .25;
+  }
+  33% {
+      opacity: 1;
+  }
+  66% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
 }

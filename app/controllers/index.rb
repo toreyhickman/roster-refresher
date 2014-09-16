@@ -3,7 +3,6 @@ before '/' do
 end
 
 get '/' do
-  @cohorts = recent_chicago_cohorts
   erb :index
 end
 
@@ -14,8 +13,21 @@ end
 post '/update_spreadsheet' do
   if params[:cohorts]
     selected_cohorts = recent_chicago_cohorts.select { |cohort| params[:cohorts].include?(cohort.name) }
-    RosterRefresher.new.update_spreadsheet(selected_cohorts) ? (redirect to '/updated') : (redirect to '/')
+    @update = RosterRefresher.new.update_spreadsheet(selected_cohorts)
   end
 
-  redirect to '/'
+  if request.xhr?
+    content_type :json
+
+    if @update
+      {status: "success"}.to_json
+    else
+      status 500
+      halt(500, {status: "failure"}.to_json)
+    end
+
+  else
+    @update ? (redirect to '/updated') : (redirect to '/')
+  end
 end
+

@@ -1,0 +1,10 @@
+<form id="cohort_list_form" method="post" action="/update_spreadsheet">
+  <% @cohorts.each do |cohort| %>
+    <div class="input_wrap margin_b_1em">
+      <input type="checkbox" id="<%= cohort.name %>"name="cohorts[]" value="<%= cohort.name %>">
+      <label for="<%= cohort.name %>"><span></span><%= cohort.name %></label>
+    </div>
+  <% end %>
+
+  <input type="submit" value="Update Spreadsheet">
+</form>
