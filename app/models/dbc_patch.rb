@@ -4,7 +4,7 @@ require 'date'
 module DBC
 
   class Cohort
-    DAYS_FROM_START_TO_GRADUATION = 60
+    NUMBER_OF_DAYS_IN_SESSION = 60
 
     def self.recent_cohorts
       cohorts = self.all
@@ -34,7 +34,7 @@ module DBC
     end
 
     def graduated_within_x_days?(num_of_days)
-      grad_date = Date.parse(start_date) + DAYS_FROM_START_TO_GRADUATION
+      grad_date = Date.parse(start_date) + NUMBER_OF_DAYS_IN_SESSION
       Date.today - 45 <= grad_date
     end
 
