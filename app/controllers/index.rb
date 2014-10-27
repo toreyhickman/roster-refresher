@@ -12,7 +12,7 @@ end
 
 post '/update_spreadsheet' do
   if params[:cohorts]
-    selected_cohorts = recent_chicago_cohorts.select { |cohort| params[:cohorts].include?(cohort.name) }
+    selected_cohorts = recent_cohorts.select { |cohort| params[:cohorts].include?(cohort.name) }
     @update = RosterRefresher.new.update_spreadsheet(selected_cohorts)
   end
 
