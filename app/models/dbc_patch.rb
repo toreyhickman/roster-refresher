@@ -9,7 +9,7 @@ module DBC
     def self.recent_cohorts
       cohorts = self.all
 
-      recent_cohorts = cohorts.select { |c| c.recent? && !c.melt_or_hold? }
+      recent_cohorts = cohorts.select { |c| c.recent? && !c.melt_or_hold? && c.name_has_year? }
       recent_cohorts.sort_by(&:start_date)
     end
 
@@ -19,6 +19,10 @@ module DBC
 
     def melt_or_hold?
       name =~ /melt|hold/i
+    end
+
+    def name_has_year?
+      name =~ /\d{4}/
     end
 
     def recent?
