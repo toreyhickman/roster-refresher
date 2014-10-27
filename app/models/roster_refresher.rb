@@ -45,6 +45,7 @@ class RosterRefresher
       ws[row, 1] = student.name
       ws[row, 2] = student.email
       ws[row, 3] = student.twitter_handle
+      ws[row, 4] = student.github_handle
     end
   end
 
