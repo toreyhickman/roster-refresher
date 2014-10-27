@@ -51,5 +51,13 @@ module DBC
     def twitter_handle
       twitter_url.sub(/(^\S*\/)?@?(?<handle>[\w]+)/, '@\k<handle>')
     end
+
+    def github_url
+      profile[:github] || String.new
+    end
+
+    def github_handle
+      github_url.sub(/(^\S*\/)?@?(?<handle>[\w]+)/, '\k<handle>')
+    end
   end
 end
